@@ -85,7 +85,7 @@ export default function CheckoutPage() {
       });
 
       // Vaciar el carrito en Firestore
-      if (cart) {
+      if (cart && cart.id) {
         await setDoc(doc(db, 'carts', cart.id), {
           id: cart.id,
           checkoutUrl: '/checkout',
