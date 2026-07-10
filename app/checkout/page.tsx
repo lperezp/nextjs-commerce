@@ -1,8 +1,8 @@
 "use client";
 
+import { doc, setDoc } from 'firebase/firestore';
 import { db } from 'lib/firebase/config';
 import { Cart, CartItem } from 'lib/firebase/types';
-import { doc, setDoc } from 'firebase/firestore';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -144,7 +144,7 @@ export default function CheckoutPage() {
             {isProcessing ? (
               <div className="flex flex-col items-center justify-center py-20">
                 <div className="mb-6 h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"></div>
-                <h3 className="text-lg font-medium">Procesando Pago Simulado...</h3>
+                <h3 className="text-lg font-medium">Procesando Pago...</h3>
                 <p className="text-sm text-neutral-400">Por favor, no cierres esta ventana.</p>
               </div>
             ) : (
@@ -244,7 +244,7 @@ export default function CheckoutPage() {
                         maxLength={16}
                         value={formData.cardNumber}
                         onChange={handleInputChange}
-                        placeholder="4111222233334444 (Simulación)"
+                        placeholder="4111222233334444"
                         className="w-full rounded-lg border border-neutral-800 bg-neutral-950 p-3 text-sm text-white placeholder-neutral-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                       />
                     </div>

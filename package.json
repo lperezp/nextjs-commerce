@@ -7,7 +7,7 @@
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "test": "pnpm prettier:check",
-    "seed": "node scripts/client-seed.js"
+    "seed": "npx tsx scripts/client-seed.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",

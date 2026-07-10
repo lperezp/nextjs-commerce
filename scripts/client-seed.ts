@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import * as fs from 'fs';
+import * as path from 'path';
 
 // Parse .env.local manually
 const envPath = path.join(__dirname, '../.env.local');
@@ -9,10 +9,10 @@ if (!fs.existsSync(envPath)) {
 }
 
 const envContent = fs.readFileSync(envPath, 'utf8');
-const env = {};
+const env: Record<string, string> = {};
 envContent.split('\n').forEach((line) => {
   const match = line.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/);
-  if (match) {
+  if (match && match[1]) {
     let value = match[2] || '';
     if (value.startsWith('"') && value.endsWith('"')) {
       value = value.slice(1, -1);
@@ -30,7 +30,7 @@ const firebaseConfig = {
   appId: env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
-const data = require('./seed');
+import { collectionsData, productsData, menusData, pagesData } from '../lib/seed-data';
 
 async function run() {
   const { initializeApp } = await import('firebase/app');
@@ -42,28 +42,28 @@ async function run() {
 
   // 1. Seed Collections
   console.log('Seeding collections...');
-  for (const coll of data.collectionsData) {
+  for (const coll of collectionsData) {
     await setDoc(doc(db, 'collections', coll.handle), coll);
     console.log(`- Seeded collection: ${coll.title}`);
   }
 
   // 2. Seed Products
   console.log('Seeding products...');
-  for (const prod of data.productsData) {
+  for (const prod of productsData) {
     await setDoc(doc(db, 'products', prod.id), prod);
     console.log(`- Seeded product: ${prod.title}`);
   }
 
   // 3. Seed Menus
   console.log('Seeding menus...');
-  for (const menu of data.menusData) {
+  for (const menu of menusData) {
     await setDoc(doc(db, 'menus', menu.handle), menu);
     console.log(`- Seeded menu: ${menu.handle}`);
   }
 
   // 4. Seed Pages
   console.log('Seeding pages...');
-  for (const pg of data.pagesData) {
+  for (const pg of pagesData) {
     await setDoc(doc(db, 'pages', pg.handle), pg);
     console.log(`- Seeded page: ${pg.title}`);
   }
