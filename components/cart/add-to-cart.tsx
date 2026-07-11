@@ -37,14 +37,14 @@ function SubmitButton({
         <div className="absolute left-0 ml-4">
           <PlusIcon className="h-5" />
         </div>
-        Add To Cart
+        Agregar al carrito
       </button>
     );
   }
 
   return (
     <button
-      aria-label="Add to cart"
+      aria-label="Agregar al carrito"
       className={clsx(buttonClasses, {
         "hover:opacity-90": true,
       })}
@@ -52,7 +52,7 @@ function SubmitButton({
       <div className="absolute left-0 ml-4">
         <PlusIcon className="h-5" />
       </div>
-      Add To Cart
+      Agregar al carrito
     </button>
   );
 }

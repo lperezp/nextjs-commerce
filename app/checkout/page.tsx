@@ -99,7 +99,6 @@ export default function CheckoutPage() {
         });
       }
 
-      setIsProcessing(false);
       clearCartCookie();
 
       // Usar window.location para forzar una recarga limpia y limpiar la caché del router de Next.js
