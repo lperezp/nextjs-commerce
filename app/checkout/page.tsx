@@ -177,7 +177,7 @@ export default function CheckoutPage() {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        placeholder="Luis Pérez"
+                        placeholder="Luis Eduardo"
                         className="w-full rounded-lg border border-neutral-800 bg-neutral-950 p-3 text-sm text-white placeholder-neutral-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
