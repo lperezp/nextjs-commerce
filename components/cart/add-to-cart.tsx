@@ -22,7 +22,7 @@ function SubmitButton({
   if (!availableForSale) {
     return (
       <button disabled className={clsx(buttonClasses, disabledClasses)}>
-        Out Of Stock
+        Agotado
       </button>
     );
   }
@@ -30,7 +30,7 @@ function SubmitButton({
   if (!selectedVariantId) {
     return (
       <button
-        aria-label="Please select an option"
+        aria-label="Por favor selecciona una opción"
         disabled
         className={clsx(buttonClasses, disabledClasses)}
       >

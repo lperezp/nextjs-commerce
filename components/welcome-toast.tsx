@@ -8,7 +8,7 @@ export function WelcomeToast() {
     // ignore if screen height is too small
     if (window.innerHeight < 650) return;
     if (!document.cookie.includes("welcome-toast=2")) {
-      toast("🛍️ Welcome to Fireshop!", {
+      toast("🛍️ ¡Bienvenido a Fireshop!", {
         id: "welcome-toast",
         duration: Infinity,
         onDismiss: () => {
@@ -16,8 +16,8 @@ export function WelcomeToast() {
         },
         description: (
           <>
-            This is a high-performance, SSR storefront powered by Firestore,
-            Next.js, and Vercel.
+            Esta es una tienda de alto rendimiento con SSR, impulsada por
+            Firestore, Next.js y Vercel.
           </>
         ),
       });
